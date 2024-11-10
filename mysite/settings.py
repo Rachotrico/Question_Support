@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-11^taz*@y($7rdm16#=rumezpom@ip@x9g-64^=ejdmmzbp@eu
 DEBUG = True
 
 ALLOWED_HOSTS = ['questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
-#CSRF_TRUSTED_ORIGINS=['questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
 
 # Application definition
 
