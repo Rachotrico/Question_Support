@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-11^taz*@y($7rdm16#=rumezpom@ip@x9g-64^=ejdmmzbp@eu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS=['https://questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
+#ALLOWED_HOSTS = ['questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
+#CSRF_TRUSTED_ORIGINS=['https://questionsupport-production.up.railway.app','https://questionsupport-production.up.railway.app']
 
 # Application definition
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    #'django.contrib.staticfiles',
     'members',
     'login_history',
     'easyaudit',
@@ -122,19 +122,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'app/staticfiles/'
+STATIC_URL = '/static/'
 
 #White noise static stuff
-STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR/'app/staticfiles'
+#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_ROOT = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles/media')
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-STATICFILES_DIRS =[os.path.join(BASE_DIR,'app/staticfiles')
+STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')
                    ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
