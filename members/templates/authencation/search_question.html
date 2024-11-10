@@ -1,0 +1,135 @@
+{%extends 'authencation/base.html'%}
+{% block content %}
+<center>
+    {%if searched%}
+    <h1>You Searched For {{searched}} </h1>
+    <br/>
+    <table  class="table">
+    <thead>  
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Question</th>
+            <th scope= "col">Question_Image</th>
+            <th scope="col">Time</th>
+            <th scope="col">Answer</th>
+            <th scope="col">Answer_Image</th>
+            {% comment %} <th scope="col">Answer</th> {% endcomment %}
+          </tr>
+    </thead>
+    <tbody>
+    {%for question in questions%}
+    <tr>
+        <th scope="row">{{question.id}}</th>
+    
+        <td><textarea>{{ question.question_text }}</textarea></li></td>
+        <td>
+            <img id="myImg{{question.id}}" src="{{question.question_image}}" alt="-" style="width:100%;max-width:200px">
+
+<!-- The Modal -->
+<div id="myModal{{question.id}}" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close"id ="close{{question.id}}">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img{{question.id}}">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption{{question.id}}"></div>
+</div>
+        </td>
+        <td>{{question.pub_date}}</td>
+        <td><textarea>{{ question.answer }}</textarea></li></td>
+        <td>
+            <img id="myImg_answer{{question.id}}" src="{{question.answer_image}}" alt="-" style="width:100%;max-width:200px">
+
+<!-- The Modal -->
+<div id="myModal_answer{{question.id}}" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close_answer" id ="close_answer{{question.id}}">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img_answer{{question.id}}">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption_answer{{question.id}}"></div>
+</div>
+        </td>
+         </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-primary" href="{%url 'members:question'%}" role="button">Back</a>
+{%else%}
+<h1>You Forgot to Search...</h1>
+</br>
+<a class="btn btn-primary" href="{%url 'members:question'%}" role="button">Back</a>
+        {% endif %}
+   
+   
+
+  
+    
+  
+    
+</center>
+{%for question in questions%}
+<script>
+    
+    // Get the modal
+  var modal = document.getElementById("myModal{{question.id}}");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  
+  
+  var img = document.getElementById("myImg{{question.id}}");
+
+  var modalImg = document.getElementById("img{{question.id}}");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementById("close{{question.id}}");
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  } 
+
+  </script>
+  <script>
+    
+    // Get the modal
+  var modal = document.getElementById("myModal_answer{{question.id}}");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  
+  
+  var img = document.getElementById("myImg_answer{{question.id}}");
+
+  var modalImg = document.getElementById("img_answer{{question.id}}");
+  var captionText = document.getElementById("caption_answer");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementById("close_answer{{question.id}}");
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  } 
+
+  </script>
+  {% endfor %}
+ 
+
+{% endblock content %}

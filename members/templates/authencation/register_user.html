@@ -1,0 +1,22 @@
+{%extends 'authencation/base.html'%}
+{% block content %}
+
+{%if form.errors %}
+<div class ="container">
+        
+        <div class ="alert alert-warning alert-dismissible fade show" role="alert"><p>There was an error with your form... </p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            
+        </div>
+
+{% endif %}
+<br>
+<h1>Register</h1>
+<form action="{% url 'members:register_user'%}" method=POST>
+    {% csrf_token %}
+    {{form.as_p}}
+    
+    <br>
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+
+{% endblock content %}

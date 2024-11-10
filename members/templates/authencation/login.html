@@ -1,0 +1,22 @@
+{%extends 'authencation/base_login.html'%}
+{% block content %}
+<h1>รวบรวมคำถามการใช้งาน Geomagic สำหรับ SR Tyres Co.,ltd</h1>
+<form action="" method=POST>
+    {% csrf_token %}
+  
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+    
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+<center>    
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+<br></br>
+<a class="btn btn-primary" href="{%url 'members:register_user'%}" role="button">Register</a>
+</center>
+{% endblock content %}
