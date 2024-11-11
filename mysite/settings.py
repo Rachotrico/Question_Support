@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'members',
     'login_history',
     'easyaudit',
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -125,8 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #White noise static stuff
-STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR/'staticfiles'
+#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_ROOT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
