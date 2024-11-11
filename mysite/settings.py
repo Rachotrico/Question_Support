@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'members',
     'login_history',
     'easyaudit',
@@ -125,8 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #White noise static stuff
-#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_ROOT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
